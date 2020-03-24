@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+{% for post in post_list %}
+<div class="post">
+    <h1><a href="{% url 'post_detail' pk=post.pk %}"></a></h1>
+</div>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+{% if post.published_date %}
+    {{post.published_date}}
+{% else %}
+<a href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+{% endif %}
+    
+{{post.title}}
+
+{% if user.is_authenticated %}
+<a href="{% url 'post_edit' pk=post.pk %}">Edit</a>
+<a href="{% url 'post_delete' pk=post.pk %}"> delete</a>
+{% endif %}
+
+
+{% endblock %}
